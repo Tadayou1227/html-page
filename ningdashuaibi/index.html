@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>宁某的个人网站</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        color: #333;
+      }
+
+      .tou {
+        background-color: #2c3e50;
+        color: white;
+        padding: 20px 0;
+        text-align: center;
+      }
+
+      .touxiang {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        margin: 0 auto 15px;
+        overflow: hidden;
+        border: 4px solid #3498db;
+      }
+
+      .touxiang img {
+        width: 100%;
+        height: 100%;
+      }
+
+      .mingzi {
+        font-size: 2rem;
+        margin-bottom: 5px;
+      }
+
+      .zhiye {
+        color: #bdc3c7;
+        margin-bottom: 15px;
+      }
+
+      /* 导航 */
+      .dao {
+        background-color: #34495e;
+        padding: 10px 0;
+      }
+
+      .dao-list {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+      }
+
+      .dao-list li {
+        margin: 0 10px;
+      }
+
+      .dao-list a {
+        color: white;
+        text-decoration: none;
+        padding: 8px 15px;
+      }
+
+      .dao-list a:hover {
+        background-color: #3498db;
+        border-radius: 4px;
+      }
+
+      /* 主要内容 */
+      .zhu {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 30px 20px;
+      }
+
+      /* 卡片 */
+      .pian {
+        background-color: white;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .pian h2 {
+        color: #2c3e50;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+      }
+
+      /* 关于personal*/
+      .guan p {
+        margin-bottom: 20px;
+        font-size: 1.1rem;
+        line-height: 1.8;
+      }
+
+      .guan-box {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-top: 30px;
+      }
+
+      .guan-item {
+        flex: 1;
+        min-width: 300px;
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 8px;
+        border-left: 4px solid #3498db;
+      }
+
+      .guan-item h3 {
+        color: #2c3e50;
+        margin-bottom: 10px;
+      }
+
+      /* 联系 */
+      .lian-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+
+      .lian-btn {
+        display: inline-block;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+        margin-top: 5px;
+      }
+
+      .lian-btn:hover {
+        background-color: #2980b9;
+      }
+
+      /* 页脚 */
+      .jiao {
+        background-color: #2c3e50;
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+        margin-top: 30px;
+      }
+
+      /* 响应式 */
+      @media (max-width: 768px) {
+        .dao-list {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .dao-list li {
+          margin: 5px 0;
+        }
+
+        .guan-box {
+          flex-direction: column;
+        }
+      }
+
+      /* 聊天界面 */
+      .data {
+        width: 400px;
+        border-style: solid;
+        border-color: gray;
+        margin: auto;
+        border-radius: 10px;
+        background-color: white;
+      }
+
+      .shang {
+        padding-left: 10px;
+        padding-top: 10px;
+        width: 100%;
+        height: 50px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+      }
+
+      .zhong {
+        width: 100%;
+        height: 400px;
+        padding: 10px;
+        box-sizing: border-box;
+        overflow: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .zuo {
+        height: 120px;
+        margin-bottom: 25px;
+      }
+
+      .zuo1 {
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        background-color: cornflowerblue;
+        float: left;
+        margin-left: 10px;
+        border-radius: 10%;
+        text-align: center;
+        font-size: larger;
+      }
+
+      .zuo2 {
+        width: 60%;
+        height: 100px;
+        float: left;
+        margin-top: 10px;
+        margin-left: 10px;
+      }
+
+      .zuocontent {
+        text-align: left;
+        padding: 10px;
+        background-color: gainsboro;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        border-top-right-radius: 10px;
+        display: inline-block;
+      }
+
+      .you {
+        height: 120px;
+        margin-bottom: 25px;
+      }
+
+      .you1 {
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        background-color: cornflowerblue;
+        float: right;
+        border-radius: 10%;
+        text-align: center;
+        font-size: larger;
+      }
+
+      .you2 {
+        width: 60%;
+        height: 100px;
+        float: right;
+        margin-top: 10px;
+      }
+
+      .youcontent {
+        text-align: left;
+        padding: 10px;
+        background-color: cornflowerblue;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        border-top-left-radius: 10px;
+        display: inline-block;
+      }
+
+      .xia {
+        width: 100%;
+        height: 150px;
+        border-bottom-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        position: relative;
+      }
+
+      .text {
+        width: 100%;
+        height: 100%;
+        border-width: 0px;
+        box-sizing: border-box;
+        outline: none;
+        border-bottom-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        font-size: 17px;
+        padding: 10px;
+      }
+
+      .commit {
+        width: 80px;
+        height: 30px;
+        color: white;
+        background-color: rgba(72, 144, 238, 0.986);
+        line-height: 30px;
+        text-align: center;
+        border-radius: 5px;
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+      }
+
+      .line {
+        width: 100%;
+        height: 1px;
+        background-color: gray;
+      }
+
+      /* 聊天栏  */
+      .liaotian-box {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .guanbi {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background-color: white;
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 头部 -->
+    <div class="tou">
+      <div class="touxiang">
+        <img img src="touxiang.jpg" alt="头像" />
+      </div>
+      <h1 class="mingzi">宁某</h1>
+      <p class="zhiye">前端开发初学者</p>
+      <p>欢迎来到我的个人网站！这是一个简单的个人介绍页面。</p>
+    </div>
+
+    <!-- 导航 -->
+    <div class="dao">
+      <ul class="dao-list">
+        <li><a href="#guan">关于我</a></li>
+        <li><a href="#lian">联系我</a></li>
+      </ul>
+    </div>
+
+    <!-- 主要内容 -->
+    <div class="zhu">
+      <!-- 关于我 -->
+      <div id="guan" class="pian guan">
+        <h2>关于我</h2>
+        <p>你好！我是宁某，一名前端初学者。</p>
+        <p>
+          目前正在学习前端开发，对HTML、CSS和JavaScript有基本的了解。我正在努力提高自己的能力
+        </p>
+        <p>除了编程，我还喜欢摄影、看电影和听音乐。相信我们能有重合的爱好</p>
+        <p>我的学习方法是边学边做，这样就可以在实践中加深理解提高自我能力</p>
+        <p>在未来的学习计划中，我希望能够深入学习以下内容：</p>
+
+        <div class="guan-box">
+          <div class="guan-item">
+            <h3>学习路径</h3>
+            <p>1. 继续学习JavaScript</p>
+            <p>2. 学习C语言</p>
+            <p>3. 了解Node.js后端开发</p>
+            <p>4. 研究有关蒋老师是尤物的相关课题</p>
+          </div>
+
+          <div class="guan-item">
+            <h3>学习目标</h3>
+            <p>1. 掌握css，希望以后写出来的css不会让我改半天</p>
+            <p>2. 掌握js基础，有能力写出更多前后端交互</p>
+            <p>3. 早日完成有关html的学习进入C语言的学习</p>
+            <p>4. 我真是炸了。。。。。</p>
+          </div>
+        </div>
+
+        <p>我相信学习编程是一个持续的过程，需要耐心和坚持。我会继续努力。</p>
+      </div>
+
+      <!-- 联系我 -->
+      <div id="lian" class="pian">
+        <h2>联系我</h2>
+
+        <div class="lian-item">
+          <div>
+            <h3>邮箱</h3>
+            <p>mfei1109@qq.com</p>
+          </div>
+        </div>
+
+        <div class="lian-item">
+          <div>
+            <h3>电话</h3>
+            <p>15182334435</p>
+          </div>
+        </div>
+
+        <div class="lian-item">
+          <div>
+            <h3>地址</h3>
+            <p>四川绵阳</p>
+          </div>
+        </div>
+
+        <div class="lian-item">
+          <div>
+            <h3>在线聊天</h3>
+            <p>想要与我实时交流？点击下方按钮打开聊天界面</p>
+            <button class="lian-btn" id="dakaiBtn">打开AI聊天界面</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="jiao">
+      <p>老北京个人网页</p>
+      <p>本网站于光绪22年建立</p>
+      <p>By宁某</p>
+    </div>
+
+    <!-- 聊天界面 -->
+    <div class="liaotian-box" id="liaotianBox">
+      <button class="guanbi" id="guanbiBtn">×</button>
+      <div class="data">
+        <div class="shang">老北京地道鸡肉卷</div>
+        <div class="line"></div>
+        <div class="zhong">
+          <div class="zuo">
+            <div class="zuo1">T</div>
+            <div class="zuo2">
+              <div style="font-size: small">Tom</div>
+              <div class="zuocontent">
+                r u buzy now?if u'r free now,why not just talk with me?
+              </div>
+            </div>
+          </div>
+          <div class="you">
+            <div class="you1">J</div>
+            <div class="you2">
+              <div style="font-size: small; float: right; margin-right: 10px">
+                Jerry
+              </div>
+              <div class="youcontent">f u!let me alone!i'm busy!</div>
+            </div>
+          </div>
+          <div class="zuo">
+            <div class="zuo1">T</div>
+            <div class="zuo2">
+              <div style="font-size: small">Tom</div>
+              <div class="zuocontent">
+                r u buzy now?if u'r free now,why not just talk with me?r u buzy
+                now?if u'r free now,why not just talk with me?
+              </div>
+            </div>
+          </div>
+          <div class="zuo">
+            <div class="zuo1">T</div>
+            <div class="zuo2">
+              <div style="font-size: small">Tom</div>
+              <div class="zuocontent">
+                r u buzy now?if u'r free now,why not just talk with me?
+              </div>
+            </div>
+          </div>
+          <div class="zuo">
+            <div class="zuo1">T</div>
+            <div class="zuo2">
+              <div style="font-size: small">Tom</div>
+              <div class="zuocontent">
+                r u buzy now?if u'r free now,why not just talk with me?
+              </div>
+            </div>
+          </div>
+          <div class="zuo">
+            <div class="zuo1">T</div>
+            <div class="zuo2">
+              <div style="font-size: small">Tom</div>
+              <div class="zuocontent">
+                r u buzy now?if u'r free now,why not just talk with me?
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="line"></div>
+        <div class="xia">
+          <textarea
+            class="text"
+            cols="30"
+            rows="10"
+            placeholder="请输入文字"
+          ></textarea>
+          <div class="commit">发送</div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // 导航点击
+      document.querySelectorAll(".dao-list a").forEach((link) => {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute("href");
+          if (targetId && targetId !== "#") {
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              window.scrollTo({
+                top: targetElement.offsetTop - 20,
+                behavior: "smooth",
+              });
+            }
+          }
+        });
+      });
+
+      // 聊天界面
+      const liaotianBox = document.getElementById("liaotianBox");
+      const dakaiBtn = document.getElementById("dakaiBtn");
+      const guanbiBtn = document.getElementById("guanbiBtn");
+
+      dakaiBtn.addEventListener("click", function () {
+        liaotianBox.style.display = "flex";
+      });
+
+      guanbiBtn.addEventListener("click", function () {
+        liaotianBox.style.display = "none";
+      });
+
+      liaotianBox.addEventListener("click", function (e) {
+        if (e.target === liaotianBox) {
+          liaotianBox.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>
